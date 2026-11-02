@@ -1,0 +1,17 @@
+# 計測用のシナリオ。各場所の利用者の状態（＝正解ラベル）。
+# 部屋の状態: in_bed / fall_suspected / standing / absent
+# 庭（garden）の状態: standing / fall_suspected / absent
+# 起動:  ros2 launch ~/ros2_ws/src/care_world/launch/care_ward.launch.py scenario:=S1
+scenarios:
+  # 転倒あり（各場所に1回ずつ転倒が来るように配置）
+  S1: {"101": in_bed,         "102": standing,       "103": in_bed,   "104": fall_suspected, "garden": standing}
+  S2: {"101": absent,         "102": in_bed,         "103": fall_suspected, "104": standing, "garden": absent}
+  S3: {"101": standing,       "102": fall_suspected, "103": absent,   "104": in_bed,   "garden": standing}
+  S4: {"101": fall_suspected, "102": absent,         "103": standing, "104": in_bed,   "garden": absent}
+  S5: {"101": in_bed,         "102": in_bed,         "103": standing, "104": absent,   "garden": fall_suspected}
+  # 転倒なしの対照（誤報を数える用）
+  N1: {"101": in_bed,         "102": standing,       "103": absent,   "104": in_bed,   "garden": standing}
+  N2: {"101": standing,       "102": in_bed,         "103": in_bed,   "104": absent,   "garden": absent}
+  # デモ動画用
+  DEMO_ROOM:   {"101": in_bed, "102": standing, "103": in_bed, "104": fall_suspected, "garden": standing}
+  DEMO_GARDEN: {"101": in_bed, "102": standing, "103": in_bed, "104": in_bed,         "garden": fall_suspected}
