@@ -1,6 +1,5 @@
 # 倒れた人を見つけて、職員を連れてくるロボット
 
-Physical AI 応用1 最終課題「AI×ロボティクスによる創造的タスクの実現」
 介護施設の居室4部屋＋庭を巡回する TurtleBot3 が、VLM（Claude Sonnet 5.5、推論のみ）で利用者の状態を判定し、
 転倒を見つけたら 近づいて撮り直し（二段階確認）→ 声かけ → 通報 → 職員の指示 → 出入口で迎えて現場へ先導 する。
 ROS 2 Humble ＋ Gazebo 11（GCP の VM 上の Docker コンテナ `tiryoh/ros2-desktop-vnc:humble`）で実装。
